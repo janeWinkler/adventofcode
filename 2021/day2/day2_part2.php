@@ -1,27 +1,29 @@
 <?php
-    include 'input.php';
-    $arr= preg_split('/([\s]+| \n)/',$input);
 
-    $aim = 0;
-    $depth = 0;
-    $horizontal = 0;
+include 'input.php';
 
-    for($x =0; $x< count($arr); $x++){
-        switch ($arr[$x]) {
-            case 'forward':
-                $horizontal += $arr[$x + 1];
-                $depth += $arr[$x + 1] * $aim;
-                break;
-            case 'up':
-                $aim -= $arr[$x + 1];
-                break;
-            case 'down':
-                $aim += $arr[$x + 1];
-                break;
+$arr = preg_split('/([\s]+| \n)/', $input);
 
-            default:
-                break;
-        }
-    };
+$aim = 0;
+$depth = 0;
+$horizontal = 0;
 
-    echo $horizontal * $depth;
+for ($x = 0; $x < count($arr); $x++) {
+    switch ($arr[$x]) {
+        case 'forward':
+            $horizontal += $arr[$x + 1];
+            $depth += $arr[$x + 1] * $aim;
+            break;
+        case 'up':
+            $aim -= $arr[$x + 1];
+            break;
+        case 'down':
+            $aim += $arr[$x + 1];
+            break;
+
+        default:
+            break;
+    }
+};
+
+echo $horizontal * $depth;
